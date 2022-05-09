@@ -8,7 +8,7 @@ pipeline {
     stages {
       stage ('gitclone') {
         steps {
-          git branch: 'master', url: 'https://github.com/pallem260497/ansible.git'
+          git branch: 'main', url: 'https://github.com/pallem260497/ansible.git'
         } 
       }
       stage ('listGit') {
@@ -31,24 +31,11 @@ pipeline {
           sh 'pwd'
         } 
       }
-      /*stage ('maven deploy') {
+      stage ('ansible') {
         steps {
-          nexusArtifactUploader artifacts: [
-              [
-                  artifactId: 'webapp', 
-                  file: 'target/webapp.war', 
-                  type: 'war'
-              ]
-          ], 
-          credentialsId: 'nexuss3',
-          groupId: 'webapp',
-          nexusUrl: '13.56.76.178:8081/repository/webapp-snapshot/',
-          nexusVersion: 'nexus3',
-          protocol: 'http',
-          repository: 'webapp-snapshot',
-          version: '1.0-SNAPSHOT'
-        }
-      }*/
+          ***8*****
+        } 
+      }
       stage ('Docker image') {
         steps {
           sh 'sudo systemctl start docker'
@@ -62,21 +49,6 @@ pipeline {
            }
           sh 'sudo docker push hemanth108/weapps:1.0.1'
         } 
-      }
-      /*stage ('k8s') {
-        steps {
-          withCredentials([string(credentialsId: 'kubernatescommand', variable: 'kubernatespwd')]) {
-          sh "pwd"
-          sh "kubectl create -f ns.yaml"
-          }
-        } 
-      }*/
-      stage ('k8s crediential') {
-        steps {  
-            kubernetesDeploy configs: 'kubernatesfile.yaml', enableConfigSubstitution: false, kubeConfig: [path: ''], kubeconfigId: 'kubernates', secretName: '', ssh: [sshCredentialsId: '*', sshServer: ''], textCredentials: [certificateAuthorityData: '', clientCertificateData: '', clientKeyData: '', serverUrl: 'https://']
-         
-         
-        }          
       }
     }
 }
