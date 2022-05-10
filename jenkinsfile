@@ -1,0 +1,54 @@
+pipeline {
+  agent {label 'Dev'}
+  tools {
+      jdk 'jdk11'
+      git 'Default'
+      maven 'maven'
+  }
+    stages {
+      stage ('gitclone') {
+        steps {
+          git branch: 'main', url: 'https://github.com/pallem260497/ansible.git'
+        } 
+      }
+      stage ('listGit') {
+        steps {
+          sh 'ls -lr'
+        } 
+      }
+      stage ('maven') {
+        steps {
+          sh 'mvn clean package'
+        } 
+      }
+      stage ('listmaven') {
+        steps {
+          sh 'ls -lr'
+        } 
+      }
+      stage ('maven path') {
+        steps {
+          sh 'pwd'
+        } 
+      }
+      stage ('ansible') {
+        steps {
+          ***8*****
+        } 
+      }
+      stage ('Docker image') {
+        steps {
+          sh 'sudo systemctl start docker'
+          sh ' sudo docker build -t hemanth108/weapps:1.0.1 .'
+        } 
+      }
+      stage ('docker crediential') {
+        steps {
+          withCredentials([string(credentialsId: 'docker-passwd', variable: 'dockerpasswd')]) {
+           sh "sudo docker login -u hemanth108 -p ${dockerpasswd}"
+           }
+          sh 'sudo docker push hemanth108/weapps:1.0.1'
+        } 
+      }
+    }
+}
