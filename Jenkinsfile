@@ -43,7 +43,7 @@ pipeline {
       }
       stage ('java installation on nodes') {
         steps {
-          sh 'ansible-playbook java.yaml'
+          sh 'ansible-playbook tomcat.yaml'
         } 
       }
     }
