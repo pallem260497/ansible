@@ -33,7 +33,7 @@ pipeline {
       }
       stage ('ansible') {
         steps {
-          ***8*****
+          ***8**
         } 
       }
     }
