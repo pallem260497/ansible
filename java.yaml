@@ -1,8 +1,4 @@
 ---
-- name: installation of java
-  hosts: servers
-  tasks:
-  - name: java
-    amazon-linux-extras:
-      name: java-openjdk11
-      state: latest
+- hosts: servers
+  roles:
+  - java-open-jdk11
