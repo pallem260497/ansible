@@ -1,6 +1,8 @@
 ---
 - name: installation of java
   hosts: servers
-  roles
-  - name: java-open-jdk11
+  tasks:
+  - name: java
+    yum
+      name: java-open-jdk11
 
