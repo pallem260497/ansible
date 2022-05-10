@@ -1,4 +1,15 @@
 ---
 - hosts: servers
-  roles:
-  - java-open-jdk11
+  tasks:
+    - name: Task - 1 Update APT package manager repositories cache
+      become: true
+      yum:
+        update_cache: yes
+    - name: Task -2 Install Java using Ansible
+      become: yes
+      yum:
+        name: "{{ packages }}"
+        state: present
+      vars:
+        packages:
+           - openjdk-11-jdk
