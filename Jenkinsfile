@@ -43,8 +43,6 @@ pipeline {
       }
       stage ('java installation on nodes') {
         steps {
-          sh 'ssh ec2-user@172.31.46.235 -o StrictHostKeyChecking=no'
-          sh 'ssh ec2-user@172.31.40.156 -o StrictHostKeyChecking=no'
           sh 'ansible-playbook java.yaml'
         } 
       }
