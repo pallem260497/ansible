@@ -31,5 +31,10 @@ pipeline {
           sh 'pwd'
         } 
       }
+      stage ('ansible version') {
+        steps {
+          sh 'ansible -version'
+        } 
+      }
     }
 }
