@@ -33,7 +33,7 @@ pipeline {
       }
       stage ('ansible version') {
         steps {
-          sh 'ansible -version'
+          sh 'ansible --version'
         } 
       }
     }
