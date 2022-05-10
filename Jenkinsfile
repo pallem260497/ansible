@@ -36,5 +36,15 @@ pipeline {
           sh 'ansible --version'
         } 
       }
+      stage ('ansible pwd') {
+        steps {
+          sh 'pwd'
+        } 
+      }
+      stage ('java installation on nodes') {
+        steps {
+          sh 'ansible-playbook java.yaml'
+        } 
+      }
     }
 }
