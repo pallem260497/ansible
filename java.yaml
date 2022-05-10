@@ -6,4 +6,4 @@
  - name: java
    yum:
      name: java-open-jdk11
-...
+
