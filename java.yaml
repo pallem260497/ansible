@@ -1,9 +1,9 @@
 ---
--name: installation of java
- hosts: servers
- become: yes
- role:
- - name: java
-   yum:
-     name: java-open-jdk11
+- name: installation of java
+  hosts: servers
+  become: yes
+  role:
+  - name: java
+    yum:
+      name: java-open-jdk11
 
