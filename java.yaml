@@ -2,7 +2,11 @@
 - name: installation of java
   hosts: servers
   tasks:
+  - name: Upgrade all packages
+    yum:
+      name: '*'
+      state: latest
   - name: java
     yum
       name: java-open-jdk11
-
+      state: latest
