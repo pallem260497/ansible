@@ -3,7 +3,7 @@
  hosts: all
  become: yes
  role:
-   - name: java
-     yum:
-       name: java-open-jdk11
+ - name: java
+   yum:
+     name: java-open-jdk11
 ...
