@@ -36,19 +36,5 @@ pipeline {
           ***8*****
         } 
       }
-      stage ('Docker image') {
-        steps {
-          sh 'sudo systemctl start docker'
-          sh ' sudo docker build -t hemanth108/weapps:1.0.1 .'
-        } 
-      }
-      stage ('docker crediential') {
-        steps {
-          withCredentials([string(credentialsId: 'docker-passwd', variable: 'dockerpasswd')]) {
-           sh "sudo docker login -u hemanth108 -p ${dockerpasswd}"
-           }
-          sh 'sudo docker push hemanth108/weapps:1.0.1'
-        } 
-      }
     }
 }
