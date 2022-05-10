@@ -31,10 +31,5 @@ pipeline {
           sh 'pwd'
         } 
       }
-      stage ('ansible') {
-        steps {
-          8
-        } 
-      }
     }
 }
