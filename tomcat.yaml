@@ -35,9 +35,9 @@
 
     - name: Change file ownership, group and permissions
       file:
-		path: /etc/systemd/system/tomcat.service
-		owner: centos
-		mode: '0777'
+        path: /etc/systemd/system/tomcat.service
+        owner: centos
+        mode: '0777'
 
     - name: start and enable tomcat server
       service:
