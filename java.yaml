@@ -2,10 +2,6 @@
 - name: installation of java
   hosts: servers
   tasks:
-  - name: Upgrade all packages
-    yum:
-      name: '*'
-      state: latest
   - name: java
     amazon-linux-extras:
       name: java-openjdk11
