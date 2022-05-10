@@ -1,3 +1,4 @@
+---
 - name: installation of java
   hosts: all
   become: yes
@@ -5,3 +6,4 @@
     - name: java
       yum:
         name: java-open-jdk11
+...
