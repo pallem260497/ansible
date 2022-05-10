@@ -8,7 +8,7 @@ pipeline {
     stages {
       stage ('gitclone') {
         steps {
-          git branch: 'main', url: 'https://github.com/pallem260497/ansible.git'
+          git branch: 'master', url: 'https://github.com/pallem260497/ansible.git'
         } 
       }
       stage ('listGit') {
