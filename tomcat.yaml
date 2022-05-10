@@ -25,8 +25,8 @@
         src: /opt/apache-tomcat-8.5.69/
         dest: /opt/tomcat8/
         remote_src: True
-        owner: centos
-        group: centos
+        owner: ec2-user
+        group: ec2-user
       when: not st.stat.exists
     - name: remove unwanted files and folders
       file:
@@ -36,7 +36,7 @@
     - name: Change file ownership, group and permissions
       file:
         path: /etc/systemd/system/tomcat.service
-        owner: centos
+        owner: ec2-user
         mode: '0777'
 
     - name: start and enable tomcat server
@@ -49,5 +49,5 @@
       copy:
         src: target/mvnwebapp.war
         dest: /opt/tomcat8/webapps/
-        owner: centos
-        group: centos
+        owner: ec2-user
+        group: ec2-user
