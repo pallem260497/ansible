@@ -1,5 +1,5 @@
 - name: tomcat installation
-  hosts: localhost
+  hosts: servers
   become: yes
   tasks:
     - name: Install java8
