@@ -1,6 +1,6 @@
 ---
 -name: installation of java
- hosts: all
+ hosts: servers
  become: yes
  role:
  - name: java
