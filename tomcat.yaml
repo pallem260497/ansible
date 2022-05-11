@@ -31,7 +31,7 @@
     - name: Change file ownership, group and permissions
       file:
         path: /opt/tomcat9
-        mode: '0774'
+        mode: '0755'
     - name: Change file ownership, group and permissions
       file:
         path: /opt/tomcat9/conf
