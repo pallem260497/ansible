@@ -28,7 +28,6 @@
         owner: ec2-user
         mode: '0777'
     - name: start and enable tomcat server
-      service:
-        name: tomcat
-        state: started
-        enabled: yes
+      shell: ./startup.sh
+      args:
+        chdir: /opt/tomcat9/bin
