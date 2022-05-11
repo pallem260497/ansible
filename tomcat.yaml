@@ -28,10 +28,10 @@
         owner: ec2-user
         mode: '0777'
     - name: start and enable tomcat server
-      service:
+      systemd:
         name: tomcat
         state: started
-        enabled: yes
+        daemon_reload: true
     - name: deploy sample app
       copy:
         src: target/creditapp.war
