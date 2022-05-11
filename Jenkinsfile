@@ -48,7 +48,7 @@ pipeline {
           installation: 'ansible', 
           inventory: 'dev.inv', 
           playbook: 'tom.yaml'
-          sh 'ansible-playbook tom.yaml'
+          
         } 
       }
     }
