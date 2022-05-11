@@ -1,4 +1,4 @@
-- name: tomcat installation
+    - name: tomcat installation
   hosts: webserver
   become: yes
   tasks:
@@ -17,38 +17,8 @@
     - name: extract the file
       unarchive:
         src: /opt/apache-tomcat-9.0.62.tar.gz
-        dest: /opt/
-        remote_src: True
-      when: not st.stat.exists
-    - name: rename the folder
-      copy:
-        src: /opt/apache-tomcat-9.0.62/
-        dest: /opt/tomcat9/
+        dest: /opt/tomcat9
         remote_src: True
         owner: ec2-user
         group: ec2-user
       when: not st.stat.exists
-    - name: remove unwanted files and folders
-      file:
-        path: /opt/apache-tomcat-9.0.62
-        state: absent
-
-
-    - name: Change file ownership, group and permissions
-      file:
-        path: /etc/systemd/system/tomcat.service
-        owner: ec2-user
-        mode: '0777'
-
-    - name: start and enable tomcat server
-      service:
-        name: tomcat
-        state: started
-        enabled: yes
-
-    - name: deploy sample app
-      copy:
-        src: target/mvnwebapp.war
-        dest: /opt/tomcat9/webapps/
-        owner: ec2-user
-        group: ec2-user
