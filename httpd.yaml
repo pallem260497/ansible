@@ -4,10 +4,7 @@
   remote_user: ec2-user
   become: true
   tasks:
-    - name: Update the System Packages
-      apt:
-        upgrade: yes
-        update_cache: yes
+    
  
     - name: Create a Tomcat User
       user:
@@ -17,10 +14,7 @@
       group:
         name: tomcat
  
-    - name: Install JAVA
-      apt:
-        name: default-jdk
-        state: present
+    
  
  
     - name: Create a Tomcat Directory
