@@ -47,7 +47,7 @@ pipeline {
       }
       stage ('java installation on nodes') {
         steps {
-          ansiblePlaybook credentialsId: 'private-key1', disableHostKeyChecking: true, installation: 'ansible', inventory: 'dev.inv', playbook: 'tomcat.yaml'
+          ansiblePlaybook credentialsId: 'private-key1', disableHostKeyChecking: true, installation: 'ansible',  playbook: 'tomcat.yaml'
         } 
       }
     }
