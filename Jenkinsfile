@@ -41,6 +41,8 @@ pipeline {
         steps {
           sh 'pwd' 
           sh 'whoami'
+          sh 'exit'
+          sh 'sudo su ec2-user'
         } 
       }
       stage ('java installation on nodes') {
