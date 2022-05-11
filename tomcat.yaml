@@ -3,34 +3,34 @@
   become: yes
   tasks:
     - name: Install java8
-      yum:
-        name: java-1.8.0-openjdk
+      amazon-linux-extras:
+        name: java-openjdk11
         state: present
-    - name: download tomcat8
+    - name: download tomcat9
       get_url:
-        url: https://mirrors.estointernet.in/apache/tomcat/tomcat-8/v8.5.69/bin/apache-tomcat-8.5.69.tar.gz
+        url: https://mirrors.estointernet.in/apache/tomcat/tomcat-9/v9.0.39/bin/apache-tomcat-9.0.39.tar.gz
         dest: /opt/
-    - name: check /opt/tomcat8 folder is present
+    - name: check /opt/tomcat9 folder is present
       stat:
-        path: /opt/tomcat8
+        path: /opt/tomcat9
       register: st
     - name: extract the file
       unarchive:
-        src: /opt/apache-tomcat-8.5.69.tar.gz
+        src: /opt/apache-tomcat-9.0.39.tar.gz
         dest: /opt/
         remote_src: True
       when: not st.stat.exists
     - name: rename the folder
       copy:
-        src: /opt/apache-tomcat-8.5.69/
-        dest: /opt/tomcat8/
+        src: /opt/apache-tomcat-9.0.39/
+        dest: /opt/tomcat9/
         remote_src: True
         owner: ec2-user
         group: ec2-user
       when: not st.stat.exists
     - name: remove unwanted files and folders
       file:
-        path: /opt/apache-tomcat-8.5.69
+        path: /opt/apache-tomcat-9.0.39
         state: absent
 
     - name: Change file ownership, group and permissions
@@ -48,6 +48,6 @@
     - name: deploy sample app
       copy:
         src: target/mvnwebapp.war
-        dest: /opt/tomcat8/webapps/
+        dest: /opt/tomcat9/webapps/
         owner: ec2-user
         group: ec2-user
