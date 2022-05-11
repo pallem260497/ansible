@@ -22,6 +22,11 @@
         owner: ec2-user
         group: ec2-user
       when: not st.stat.exists
+    - name: remove unwanted files and folders
+      file:
+        path: /opt/apache-tomcat-8.5.69
+        state: absent
+
     - name: Change file ownership, group and permissions
       file:
         path: /etc/systemd/system/tomcat.service
