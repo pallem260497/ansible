@@ -22,3 +22,7 @@
         owner: ec2-user
         group: ec2-user
       when: not st.stat.exists
+    - name: remove unwanted files and folders
+      file:
+        path: /opt/apache-tomcat-9.0.62
+        state: absent
