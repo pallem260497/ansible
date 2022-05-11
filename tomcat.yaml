@@ -33,6 +33,7 @@
         path: /opt/apache-tomcat-9.0.39
         state: absent
 
+
     - name: Change file ownership, group and permissions
       file:
         path: /etc/systemd/system/tomcat.service
