@@ -2,7 +2,7 @@
   hosts: servers
   become: yes
   tasks:
-    - name: Install java8
+    - name: Install java11
       amazon-linux-extras:
         name: java-openjdk11
         state: present
