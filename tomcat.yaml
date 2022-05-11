@@ -31,13 +31,13 @@
     - name: Change file ownership, group and permissions
       file:
         path: /opt/tomcat9
-        mode: '0755'
+        mode: 755
    
     - name: Change file ownership, group and permissions
       file:
         path: /etc/systemd/system/tomcat.service
         owner: ec2-user
-        mode: '0755'
+        mode: 755
     - name: Change ownership of tomcat directory
       file:
         path: /opt/tomcat9
