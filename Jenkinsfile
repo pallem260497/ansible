@@ -47,7 +47,7 @@ pipeline {
           disableHostKeyChecking: true,
           installation: 'ansible', 
           inventory: 'dev.inv', 
-          playbook: 'tomcat.yaml'
+          playbook: 'tom.yaml'
           sh 'ansible-playbook tom.yaml'
         } 
       }
