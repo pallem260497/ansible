@@ -29,7 +29,7 @@
         mode: '0777'
     - name: start and enable tomcat server
       systemd:
-        name: tomcat
+        name: tomcat9
         state: started
         daemon_reload: true
     - name: deploy sample app
