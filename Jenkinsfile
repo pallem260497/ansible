@@ -39,7 +39,8 @@ pipeline {
       }
       stage ('ansible pwd') {
         steps {
-          sh 'pwd'
+          sh 'pwd' 
+          sh 'whoami'
         } 
       }
       stage ('java installation on nodes') {
