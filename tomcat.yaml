@@ -27,6 +27,27 @@
         path: /opt/apache-tomcat-8.5.69
         state: absent
 
+    
+    - name: Change file ownership, group and permissions
+      file:
+        path: /opt/tomcat9
+        mode: '0774'
+    - name: Change file ownership, group and permissions
+      file:
+        path: /opt/tomcat9/conf
+        mode: '0775'
+    - name: Change file ownership, group and permissions
+      file:
+        path: /opt/tomcat9/webapps/ 
+        mode: '0775'
+    - name: Change file ownership, group and permissions
+      file:
+        path: /opt/tomcat9/work/
+        mode: '0775'
+    - name: Change file ownership, group and permissions
+      file:
+        path: /opt/tomcat9/logs/
+        mode: '0775'
     - name: Change file ownership, group and permissions
       file:
         path: /etc/systemd/system/tomcat.service
