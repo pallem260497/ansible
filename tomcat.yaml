@@ -33,7 +33,7 @@
         chdir: /opt/tomcat9/bin
     - name: deploy sample app
       copy:
-        src: target/mvnwebapp.war
+        src: target/creditapp.war
         dest: /opt/tomcat8/webapps/
         owner: ec2-user
         group: ec2-user
