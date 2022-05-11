@@ -42,7 +42,7 @@
         daemon_reload: true
     - name: deploy sample app
       copy:
-        src: target/creditapp.war
+        src: /target/creditapp.war
         dest: /opt/tomcat9/webapps/
         owner: ec2-user
         group: ec2-user
