@@ -1,4 +1,4 @@
-    - name: tomcat installation
+- name: tomcat installation
   hosts: webserver
   become: yes
   tasks:
