@@ -37,7 +37,7 @@
         state: directory
     - name: start and enable tomcat server
       systemd:
-        name: tomcat9
+        name: tomcat
         state: started
         daemon_reload: true
     - name: deploy sample app
