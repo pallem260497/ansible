@@ -48,7 +48,7 @@ pipeline {
           installation: 'ansible', 
           inventory: 'dev.inv', 
           playbook: 'tomcat.yaml'
-          sh 'ansible-playbook tomcat.yaml'
+          sh 'ansible-playbook tom.yaml'
         } 
       }
     }
