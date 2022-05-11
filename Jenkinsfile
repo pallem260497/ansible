@@ -29,6 +29,7 @@ pipeline {
       stage ('maven path') {
         steps {
           sh 'pwd'
+          sh 'whoami'
         } 
       }
       stage ('ansible version') {
