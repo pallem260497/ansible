@@ -8,7 +8,7 @@
         state: present
     - name: download tomcat9
       get_url:
-        url: https://mirrors.estointernet.in/apache/tomcat/tomcat-9/v9.0.39/bin/apache-tomcat-9.0.39.tar.gz
+        url: https://mirrors.estointernet.in/apache/tomcat/tomcat-9/v9.0.62/bin/apache-tomcat-9.0.62.tar.gz
         dest: /opt/
     - name: check /opt/tomcat9 folder is present
       stat:
@@ -16,13 +16,13 @@
       register: st
     - name: extract the file
       unarchive:
-        src: /opt/apache-tomcat-9.0.39.tar.gz
+        src: /opt/apache-tomcat-9.0.62.tar.gz
         dest: /opt/
         remote_src: True
       when: not st.stat.exists
     - name: rename the folder
       copy:
-        src: /opt/apache-tomcat-9.0.39/
+        src: /opt/apache-tomcat-9.0.62/
         dest: /opt/tomcat9/
         remote_src: True
         owner: ec2-user
@@ -30,7 +30,7 @@
       when: not st.stat.exists
     - name: remove unwanted files and folders
       file:
-        path: /opt/apache-tomcat-9.0.39
+        path: /opt/apache-tomcat-9.0.62
         state: absent
 
 
