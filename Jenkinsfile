@@ -6,9 +6,19 @@ pipeline {
       maven 'maven'
   }
     stages {
+      stage ('user') {
+        steps {
+          sh 'whoami'
+        } 
+      }
       stage ('gitclone') {
         steps {
           git branch: 'master', url: 'https://github.com/pallem260497/ansible.git'
+        } 
+      }
+      stage ('user') {
+        steps {
+          sh 'whoami'
         } 
       }
       stage ('listGit') {
@@ -29,6 +39,11 @@ pipeline {
       stage ('maven path') {
         steps {
           sh 'pwd'
+          sh 'whoami'
+        } 
+      }
+      stage ('user') {
+        steps {
           sh 'whoami'
         } 
       }
