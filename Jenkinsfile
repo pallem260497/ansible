@@ -1,11 +1,6 @@
 pipeline {
   agent any
-    stages{
-      stage ('user') {
-        steps {
-          sh 'whoami'
-        } 
-      }
+    stages { 
       stage ('gitclone') {
         steps {
           git branch: 'master', url: 'https://github.com/pallem260497/ansible.git'
