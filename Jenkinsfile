@@ -1,10 +1,5 @@
 pipeline {
   agent any
-  tools {
-      jdk 'jdk11'
-      git 'Default'
-      maven 'maven'
-  }
     stages {
       stage ('user') {
         steps {
