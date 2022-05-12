@@ -1,6 +1,6 @@
 pipeline {
   agent any
-    stages {
+    stages{
       stage ('user') {
         steps {
           sh 'whoami'
